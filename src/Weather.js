@@ -19,9 +19,9 @@ function WeatherInf(props) {
     });
   }
   function search() {
-    const apiKey = "6fd11e5ce241d9d3bdebb9aba9f2f93e";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
-    axios.get(apiUrl).then(weatherDate);
+    const apiKey = "197ef3a642b76eef90e131866f74a0a0";
+    let apiUrl = `https:api.openweathermap.org/data/2.5/onecall?q=${city}&appid=${apiKey}`;
+     axios.get(apiUrl).then(weatherDate);
   }
 
   function handleSubmit(event) {

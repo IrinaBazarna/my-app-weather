@@ -11,7 +11,7 @@ function App() {
         <p>
           <a
             className="App-link"
-            href="https://github.com/IrinaBazarna/weather-react"
+            href="https://github.com/IrinaBazarna/my-app-weather"
             target="_blank"
             rel="noopener noreferrer"
           >
