@@ -1,5 +1,5 @@
 import React from "react";
-import Weather from "./Weather";
+
 import "./App.css";
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <footer className="App-footer">
         <h1>Wheather App</h1>
-        <Weather />
+        
         <p>
           <a
             className="App-link"
