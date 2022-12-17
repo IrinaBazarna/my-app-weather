@@ -33,7 +33,7 @@ setLoaded(true);
  </div> </div>);}
        
 else{
-     let apiKey="fe1483f743b581b5520a1b725af03a49";
+     let apiKey = "62bc298785543e137bc6756e514eb1c3";
     let longitude=props.coord.lon;
     let latitude=props.coord.lat;
     let apiUrl = `https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;

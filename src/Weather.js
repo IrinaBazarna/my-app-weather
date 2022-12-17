@@ -21,7 +21,7 @@ import axios from "axios";
     });
   }
   function search() {
-    const apiKey = "bd3bb6534458ba51b48c49f5155745b6";
+    const apiKey = "62bc298785543e137bc6756e514eb1c3";
     let apiUrl = `https:api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
      axios.get(apiUrl).then(handleRespose);
   }
