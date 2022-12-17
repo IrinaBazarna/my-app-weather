@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import WeatherDate from "./WeatherDate";
+import Forecast from "./Forecast";
 import axios from "axios";
 
 function WeatherInf(props) {
+  const [ready, setReady]=useState(false);
   const [weather, setWeather] = useState({ ready: false });
   const [city, setCity] = useState(props.city);
 
   function weatherDate(response) {
     setWeather({
       ready: true,
+      coord:response.data.coord,
       date: new Date(response.data.dt * 1000),
       city: response.data.name,
       temperature: response.data.main.temp,
@@ -19,21 +22,23 @@ function WeatherInf(props) {
     });
   }
   function search() {
-    const apiKey = "197ef3a642b76eef90e131866f74a0a0";
-    let apiUrl = `https:api.openweathermap.org/data/2.5/onecall?q=${city}&appid=${apiKey}`;
+   
+    const apiKey = "bd3bb6534458ba51b48c49f5155745b6";
+    let apiUrl = `https:api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
      axios.get(apiUrl).then(weatherDate);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
     search();
+    setReady(true);
   }
 
   function updateCity(event) {
     setCity(event.target.value);
   }
 
-  if (weather.ready) {
+  if (ready) {
     return (
       <div>
         <div className="Weather">
@@ -55,6 +60,7 @@ function WeatherInf(props) {
           </form>
         </div>
         <WeatherDate data={weather} />
+        <Forecast coord={weather.coord}/>
       </div>
     );
   } else {
