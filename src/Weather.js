@@ -3,12 +3,11 @@ import WeatherDate from "./WeatherDate";
 import Forecast from "./Forecast";
 import axios from "axios";
 
-function WeatherInf(props) {
-  const [ready, setReady]=useState(false);
-  const [weather, setWeather] = useState({ ready: false });
+ export default function WeatherInf(props) {
+  const [weather, setWeather] = useState({ready:false});
   const [city, setCity] = useState(props.city);
 
-  function weatherDate(response) {
+  function handleRespose(response) {
     setWeather({
       ready: true,
       coord:response.data.coord,
@@ -22,23 +21,21 @@ function WeatherInf(props) {
     });
   }
   function search() {
-   
     const apiKey = "bd3bb6534458ba51b48c49f5155745b6";
     let apiUrl = `https:api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
-     axios.get(apiUrl).then(weatherDate);
+     axios.get(apiUrl).then(handleRespose);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
     search();
-    setReady(true);
   }
 
   function updateCity(event) {
     setCity(event.target.value);
   }
 
-  if (ready) {
+  if (weather.ready) {
     return (
       <div>
         <div className="Weather">
@@ -68,4 +65,4 @@ function WeatherInf(props) {
     return "Loading...";
   }
 }
-export default WeatherInf;
+
